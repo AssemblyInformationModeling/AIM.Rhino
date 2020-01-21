@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="AIM_RH.Timeline"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AIM_RH"
+             mc:Ignorable="d" 
+             Height="200" Width="1000">
+
+    <UserControl.DataContext>
+        <local:TimelineManager />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <oxy:PlotView 
+                Model="{Binding model}" 
+                Grid.Row="0" 
+                Background="Transparent"
+            />
+
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" Margin="3 0 0 0"><Hyperlink>MyAssembly.adm</Hyperlink> <Bold>></Bold> <Hyperlink>Component_A01</Hyperlink></TextBlock>
+
+                <Grid Grid.Column="1" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Margin="1" ToolTip="Fit Zoom" Width="30">
+
+                    </Button>
+
+                    <Button Grid.Column="1" Margin="1" ToolTip="Zoom Selected" Width="30">
+
+                    </Button>
+
+                    <Separator Grid.Column="2" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+
+                    <Button Grid.Column="3" Margin="1" ToolTip="Go to Start" Width="30">
+                        
+                    </Button>
+                    <Button Grid.Column="4" Margin="1" ToolTip="Previous Element" Width="30">
+                        
+                    </Button>
+                    <Button Grid.Column="5" Margin="1" ToolTip="Start Simulation" Width="30">
+                        
+                    </Button>
+                    <Button Grid.Column="6" Margin="1" ToolTip="Stop Simulation" Width="30">
+                        
+                    </Button>
+                    <Button Grid.Column="7" Margin="1" ToolTip="Next Element" Width="30">
+                        
+                    </Button>
+                    <Button Grid.Column="8" Margin="1" ToolTip="Go to End" Width="30">
+                        
+                    </Button>
+                </Grid>
+
+            </Grid>
+
+
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0"  Margin="5"  Name="but01">Export</Button>
+            <Button Grid.Row="1"  Margin="5"  Name="but02">Compute Geometry</Button>
+        </Grid>
+
+    </Grid>
+</UserControl>
